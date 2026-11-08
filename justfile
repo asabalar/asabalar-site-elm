@@ -1,4 +1,4 @@
 watch:
   watchexec -w src just make
 make:
-  elm make src/Main.elm --output main.js
+  elm make src/Main.elm --output elm.js
