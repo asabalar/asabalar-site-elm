@@ -4880,9 +4880,7 @@ var $elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
-var $elm$html$Html$h1 = _VirtualDom_node('h1');
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -4892,27 +4890,135 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			$elm$json$Json$Encode$string(string));
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $elm$html$Html$span = _VirtualDom_node('span');
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $author$project$Main$viewTitleHidden = function (t) {
+	return A2(
+		$elm$html$Html$span,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('text-left overflow-hidden align-bottom inline-block w-0 transition-[width] duration-300 ease-in-out group-hover:w-25')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$span,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text(t)
+					]))
+			]));
+};
+var $author$project$Main$viewTitleVisible = function (t) {
+	return A2(
+		$elm$html$Html$span,
+		_List_Nil,
+		_List_fromArray(
+			[
+				$elm$html$Html$text(t)
+			]));
+};
+var $author$project$Main$viewTitle = A2(
+	$elm$html$Html$h1,
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$class('group text-5xl font-thin')
+		]),
+	_List_fromArray(
+		[
+			$author$project$Main$viewTitleVisible('Ас'),
+			$author$project$Main$viewTitleHidden('ланян'),
+			$author$project$Main$viewTitleVisible('Аб'),
+			$author$project$Main$viewTitleHidden('илкаламова'),
+			$author$project$Main$viewTitleVisible('Ал'),
+			$author$project$Main$viewTitleHidden('ина'),
+			$author$project$Main$viewTitleVisible('Ар'),
+			$author$project$Main$viewTitleHidden('тур')
+		]));
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $elm$html$Html$a = _VirtualDom_node('a');
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var $author$project$Main$viewNavLink = F2(
+	function (link, t) {
+		return A2(
+			$elm$html$Html$li,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('flex-none m-1 after:content-[\u0027/\u0027] after:ml-2 last:after:content-[\u0027\u0027] last:after:ml-0')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$a,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('underline hover:text-zinc-400'),
+							$elm$html$Html$Attributes$href(link)
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(t)
+						]))
+				]));
+	});
+var $author$project$Main$viewNavbar = A2(
+	$elm$html$Html$ul,
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$class('mx-auto flex items-center place-content-center')
+		]),
+	_List_fromArray(
+		[
+			A2($author$project$Main$viewNavLink, '/', 'Главная'),
+			A2($author$project$Main$viewNavLink, '/projects', 'Проекты')
+		]));
 var $author$project$Main$view = function (model) {
 	return {
 		body: _List_fromArray(
 			[
 				A2(
-				$elm$html$Html$h1,
+				$elm$html$Html$div,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$class('text-3xl font-bold underline text-clifford')
+						$elm$html$Html$Attributes$class('text-zinc-100 w-full p-8 text-center bg-linear-45 from-pink-950 to-pink-800')
 					]),
 				_List_fromArray(
+					[$author$project$Main$viewTitle])),
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
 					[
-						$elm$html$Html$text('Hello there wow!')
-					]))
+						$elm$html$Html$Attributes$class('center border-t-2 border-t-red-800/50 p-1 text-zinc-100 bg-linear-45 from-zinc-800 to-zinc-950')
+					]),
+				_List_fromArray(
+					[$author$project$Main$viewNavbar])),
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('')
+					]),
+				_List_Nil)
 			]),
-		title: 'AsAbAlAr'
+		title: 'Театр АсАбАлАр'
 	};
 };
 var $author$project$Main$update = F2(
 	function (msg, model) {
-		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+		if (msg.$ === 'LinkClicked') {
+			return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+		} else {
+			return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+		}
 	});
 var $author$project$Main$UrlChanged = function (a) {
 	return {$: 'UrlChanged', a: a};
